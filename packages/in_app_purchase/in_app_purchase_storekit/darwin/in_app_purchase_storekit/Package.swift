@@ -10,7 +10,7 @@ import PackageDescription
 let package = Package(
   name: "in_app_purchase_storekit",
   platforms: [
-    .iOS(.v13),
+    .iOS(.v12),
     .macOS(.v10_15),
   ],
   products: [
