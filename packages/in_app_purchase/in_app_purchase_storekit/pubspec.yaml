@@ -5,8 +5,8 @@ issue_tracker: https://github.com/flutter/flutter/issues?q=is%3Aissue+is%3Aopen+
 version: 0.4.10+1
 
 environment:
-  sdk: ^3.10.0
-  flutter: ">=3.38.0"
+  sdk: ^3.7.0
+  flutter: ">=3.29.0"
 
 flutter:
   plugin:
@@ -23,7 +23,8 @@ dependencies:
   collection: ^1.15.0
   flutter:
     sdk: flutter
-  in_app_purchase_platform_interface: ^1.4.0
+  in_app_purchase_platform_interface:
+    path: ../in_app_purchase_platform_interface
   json_annotation: ^4.9.0
 
 dev_dependencies:

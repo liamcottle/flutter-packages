@@ -340,7 +340,7 @@ extension InAppPurchasePlugin: InAppPurchase2API {
   func presentOfferCodeRedeemSheet(completion: @escaping (Result<Void, Error>) -> Void) {
     #if os(iOS)
       if #available(iOS 16.0, *) {
-        guard let windowScene = self.registrar?.viewController?.view.window?.windowScene else {
+        guard let windowScene = UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }).first(where: { $0.activationState == .foregroundActive }) else {
           let error = PigeonError(
             code: "storekit2_missing_key_window_scene",
             message: "Failed to fetch key window scene",
@@ -368,7 +368,7 @@ extension InAppPurchasePlugin: InAppPurchase2API {
       }
     #elseif os(macOS)
       if #available(macOS 15.0, *) {
-        guard let viewController = self.registrar?.viewController else {
+        guard let viewController = (NSApp.keyWindow ?? NSApp.windows.first)?.contentViewController else {
           let error = PigeonError(
             code: "storekit2_missing_view_controller",
             message: "Failed to fetch view controller",
